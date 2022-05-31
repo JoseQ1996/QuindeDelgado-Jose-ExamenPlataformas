@@ -38,6 +38,7 @@ public class ProductoBean implements Serializable {
     private String nombre;
     private int stock;
     private double precio;
+    private String nombreBodega;
     private List<String> bodegas = new ArrayList<>();
 
     @PostConstruct
@@ -46,8 +47,14 @@ public class ProductoBean implements Serializable {
     }
 
     public String add() {
+        Producto producto=productoFacade.getProductoByName(nombre);
+        if(producto==null){
         productoFacade.create(new Producto(nombre, stock, precio));
         list = productoFacade.findAll();
+        }
+        if (producto!=null){
+            
+        }
         return null;
     }
 
@@ -113,5 +120,14 @@ public class ProductoBean implements Serializable {
         bodegas = bodegaFacade.getBodegasNames();
         return bodegas;
     }
+
+    public String getNombreBodega() {
+        return nombreBodega;
+    }
+
+    public void setNombreBodega(String nombreBodega) {
+        this.nombreBodega = nombreBodega;
+    }
+    
 
 }

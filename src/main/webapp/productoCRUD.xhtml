@@ -73,6 +73,9 @@
 			<li>Stock:<h:inputText size="10" value="#{productoBean.stock}" /></li>
 			<li>Precio:<h:inputText size="10"
                                                   value="#{productoBean.precio}" /></li>
+                        <h:selectOneMenu  value="#{productoBean.nombreBodega}">
+                                        <f:selectItems value="#{productoBean.bodegas}" />
+                                    </h:selectOneMenu> 
 		</ul>
 		<h:commandButton value="Registrar Producto" action="#{productoBean.add}" />
 	</h:form>
