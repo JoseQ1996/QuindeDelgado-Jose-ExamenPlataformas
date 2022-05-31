@@ -10,6 +10,7 @@ import ec.edu.ups.facade.ProductoFacade;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.annotation.FacesConfig;
 import jakarta.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.List;
  *
  * @author User
  */
+@FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
 @SessionScoped
 public class ProductoBean implements Serializable {
@@ -32,7 +34,7 @@ public class ProductoBean implements Serializable {
     private BodegaFacade bodegaFacade;
 
     private List<Producto> list = new ArrayList<>();
-    private int id;
+    private int codigo;
     private String nombre;
     private int stock;
     private double precio;
@@ -75,12 +77,12 @@ public class ProductoBean implements Serializable {
         this.list = list;
     }
 
-    public int getId() {
-        return id;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -106,6 +108,7 @@ public class ProductoBean implements Serializable {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
     public List<String> getListaBodegas() {
         bodegas = bodegaFacade.getBodegasNames();
         return bodegas;
