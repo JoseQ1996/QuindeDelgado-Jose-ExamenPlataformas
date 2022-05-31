@@ -8,6 +8,7 @@ import ec.edu.ups.entidades.Bodega;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  *
@@ -26,5 +27,16 @@ public class BodegaFacade extends AbstractFacade<Bodega> {
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+    public Bodega getBodegaByName(String name) {
+        String jpql = "SELECT b FROM Bodega b WHERE b.nombre = '" + name+"'";
+        Bodega bodega = (Bodega) em.createQuery(jpql).getSingleResult();
+        return bodega;
+    }
+
+    public List<String> getBodegasNames() {
+        String jpql = "SELECT b.nombre FROM Bodegas b ";
+        List<String> res = em.createQuery(jpql).getResultList();
+        return res;
     }
 }

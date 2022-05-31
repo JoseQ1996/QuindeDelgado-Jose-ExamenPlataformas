@@ -74,6 +74,13 @@ public class Bodega implements Serializable{
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
+     public void addProducto(Producto p) {
+        this.productos.add(p);
+    }
+
+    public void removeProducto(Producto p) {
+        this.productos.remove(p);
+    }
 
     @Override
     public String toString() {

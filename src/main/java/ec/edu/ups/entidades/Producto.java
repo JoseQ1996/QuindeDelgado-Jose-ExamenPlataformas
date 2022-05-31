@@ -28,12 +28,12 @@ public class Producto implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codigo;
     private String nombre;
-    private int stockActual;
+    private int stock;
     private double precio;
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "productos")
     @JoinColumn
     private List<Bodega> bodegas;
-    
+
     @Transient
     private boolean editable;
 
@@ -41,9 +41,9 @@ public class Producto implements Serializable {
         bodegas = new ArrayList<Bodega>();
     }
 
-    public Producto(String nombre, int stockActual, double precio) {
+    public Producto(String nombre, int stock, double precio) {
         this.nombre = nombre;
-        this.stockActual = stockActual;
+        this.stock = stock;
         this.precio = precio;
         bodegas = new ArrayList<Bodega>();
     }
@@ -64,12 +64,12 @@ public class Producto implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getStockActual() {
-        return stockActual;
+    public int getStock() {
+        return stock;
     }
 
-    public void setStockActual(int stockActual) {
-        this.stockActual = stockActual;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public double getPrecio() {
@@ -96,12 +96,17 @@ public class Producto implements Serializable {
         this.editable = editable;
     }
 
+    public void addBodega(Bodega b) {
+        this.bodegas.add(b);
+    }
+
+    public void removeBodega(Bodega b) {
+        this.bodegas.remove(b);
+    }
+
     @Override
     public String toString() {
-        return "Producto{" + "codigo=" + codigo + ", nombre=" + nombre + ", stockActual=" + stockActual + ", precio=" + precio + '}';
+        return "Producto{" + "codigo=" + codigo + ", nombre=" + nombre + ", stockActual=" + stock + ", precio=" + precio + '}';
     }
-    
-    
-    
 
 }
