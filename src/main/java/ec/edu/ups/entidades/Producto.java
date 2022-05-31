@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Transient;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ public class Producto implements Serializable {
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "productos")
     @JoinColumn
     private List<Bodega> bodegas;
+    
+    @Transient
+    private boolean editable;
 
     public Producto() {
         bodegas = new ArrayList<Bodega>();
@@ -83,6 +87,20 @@ public class Producto implements Serializable {
     public void setBodegas(List<Bodega> bodegas) {
         this.bodegas = bodegas;
     }
+
+    public boolean isEditable() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "codigo=" + codigo + ", nombre=" + nombre + ", stockActual=" + stockActual + ", precio=" + precio + '}';
+    }
+    
     
     
 

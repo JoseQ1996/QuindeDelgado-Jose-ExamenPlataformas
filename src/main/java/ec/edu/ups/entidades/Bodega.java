@@ -74,6 +74,12 @@ public class Bodega implements Serializable{
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
+
+    @Override
+    public String toString() {
+        return "Bodega{" + "id=" + id + ", nombre=" + nombre + ", ciudad=" + ciudad + '}';
+    }
+    
     
     
     
