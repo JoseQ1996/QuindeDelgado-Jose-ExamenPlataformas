@@ -46,14 +46,17 @@ public class ProductoBean implements Serializable {
         list = productoFacade.findAll();
     }
 
-    public String add() {
-        Producto producto=productoFacade.getProductoByName(nombre);
-        if(producto==null){
-        productoFacade.create(new Producto(nombre, stock, precio));
-        list = productoFacade.findAll();
+    public String add() throws Exception {
+        Producto producto = productoFacade.getProductoByName(nombre);
+        if (producto == null) {
+            productoFacade.create(new Producto(nombre, stock, precio));
+            productoFacade.agregarBodega(nombre, nombreBodega);
+            list = productoFacade.findAll();
         }
-        if (producto!=null){
-            
+        if (producto != null) {
+            productoFacade.agregarBodega(nombre, nombreBodega);
+            list = productoFacade.findAll();
+
         }
         return null;
     }
@@ -128,6 +131,5 @@ public class ProductoBean implements Serializable {
     public void setNombreBodega(String nombreBodega) {
         this.nombreBodega = nombreBodega;
     }
-    
 
 }

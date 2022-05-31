@@ -74,7 +74,7 @@
 			<li>Precio:<h:inputText size="10"
                                                   value="#{productoBean.precio}" /></li>
                         <h:selectOneMenu  value="#{productoBean.nombreBodega}">
-                                        <f:selectItems value="#{productoBean.bodegas}" />
+                                        <f:selectItems value="#{productoBean.listaBodegas}" />
                                     </h:selectOneMenu> 
 		</ul>
 		<h:commandButton value="Registrar Producto" action="#{productoBean.add}" />

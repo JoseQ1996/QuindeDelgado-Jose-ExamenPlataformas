@@ -35,7 +35,7 @@ public class BodegaFacade extends AbstractFacade<Bodega> {
     }
 
     public List<String> getBodegasNames() {
-        String jpql = "SELECT b.nombre FROM Bodegas b ";
+        String jpql = "SELECT b.nombre FROM Bodega b ";
         List<String> res = em.createQuery(jpql).getResultList();
         return res;
     }

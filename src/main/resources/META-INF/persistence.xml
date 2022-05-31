@@ -5,7 +5,7 @@
         <jta-data-source>jdbc/_ExamenPlataformasWeb</jta-data-source>
         <properties>
              <property name="jakarta.persistence.schema-generation.database.action" 
-                      value="drop-and-create"/>  
+                      value="update"/>  
             <property name="eclipselink.logging.level" value="FINEST"/>
             
         </properties>
