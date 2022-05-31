@@ -1,4 +1,4 @@
-package com.mycompany.quindedelgado.jose.examen.resources;
+package ec.edu.ups.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

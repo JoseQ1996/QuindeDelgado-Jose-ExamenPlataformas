@@ -1,4 +1,4 @@
-package com.mycompany.quindedelgado.jose.examen;
+package ec.edu.ups.jpa;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
